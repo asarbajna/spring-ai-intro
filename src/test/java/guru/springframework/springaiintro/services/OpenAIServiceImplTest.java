@@ -14,7 +14,7 @@ class OpenAIServiceImplTest {
 
     @Test
     void getAnswer() {
-        String answer = openAIService.getAnswer("What is the meaning of life?");
+        String answer = openAIService.getAnswer("How to create a generic method which will convert any string to its enum type in java?");
 
         System.out.println(answer);
 
