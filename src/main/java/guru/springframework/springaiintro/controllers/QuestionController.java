@@ -5,14 +5,16 @@ import guru.springframework.springaiintro.model.GetCapitalRequest;
 import guru.springframework.springaiintro.model.GetCapitalResponse;
 import guru.springframework.springaiintro.model.Question;
 import guru.springframework.springaiintro.services.OpenAIService;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+
+import javax.validation.Valid;
 
 /**
  * Created by jt, Spring Framework Guru.
  */
-@RestController
+@CrossOrigin(origins = "http://localhost:3000")
+@RestController()
+@RequestMapping("/test")
 public class QuestionController {
     private final OpenAIService openAIService;
 
@@ -21,7 +23,7 @@ public class QuestionController {
     }
 
     @PostMapping("/capitalWithInfo")
-    public Answer getCapitalWithInfo(@RequestBody GetCapitalRequest getCapitalRequest) {
+    public Answer getCapitalWithInfo(@RequestBody @Valid GetCapitalRequest getCapitalRequest) {
         return this.openAIService.getCapitalWithInfo(getCapitalRequest);
     }
 

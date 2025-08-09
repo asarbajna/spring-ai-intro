@@ -1,4 +1,6 @@
 package guru.springframework.springaiintro.model;
 
-public record GetCapitalRequest(String stateOrCountry) {
+import javax.validation.constraints.NotNull;
+
+public record GetCapitalRequest(@NotNull String stateOrCountry) {
 }
